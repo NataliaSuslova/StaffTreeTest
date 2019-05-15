@@ -1,8 +1,8 @@
-'use strict';
-var http = require('http');
 var port = process.env.PORT || 1337;
+var webpack = require('webpack');
+var WebpackDevServer = require('webpack-dev-server');
+var config = require('./webpack.config');
 
-http.createServer(function (req, res) {
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end('Hello World\n');
+new WebpackDevServer(webpack(config), {
+    publicPath: config.output.publicPath
 }).listen(port);
