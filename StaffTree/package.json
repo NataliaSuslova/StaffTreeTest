@@ -1,0 +1,9 @@
+{
+  "name": "staff-tree",
+  "version": "0.0.0",
+  "description": "StaffTree",
+  "main": "server.js",
+  "author": {
+    "name": ""
+  }
+}
