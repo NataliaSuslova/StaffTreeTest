@@ -16,9 +16,9 @@ class DBTreeViewNode extends React.Component {
     render() {
         return (
             <li>
-                <p>{this.state.item.name}</p>
-                <p>Должность: {this.state.item.position}</p>
-                <p>Зарплата: {this.state.item.value} р.</p>
+                <h3><span class="treename">{this.state.item.name} </span><span class="edit">ред</span></h3>
+                <h3><b>Должность: </b>{this.state.item.position}</h3>
+                <h3><b>Зарплата: </b>{this.state.item.value} р.</h3>
                 <details open><summary>Подчиненные: </summary> {this.state.children} </details>
             </li>
         );

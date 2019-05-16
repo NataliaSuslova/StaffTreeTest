@@ -2,7 +2,7 @@
 var React = require('react');
 var DBTreeView = require('./components/DBTreeView.jsx');
 
-
+const title = "Иерархия сотрудников рекламного агенства АВРОРА";
 const propitems = [
     {
         name: "Иванов Сергей Михайлович",
@@ -29,7 +29,6 @@ const propitems = [
                 ]
             },
             {
-                
                 name: "Смирнов Андрей Александрович",
                 position: "Руководитель отдела копирайтинга",
                 value: "35000",
@@ -64,5 +63,5 @@ const propitems = [
     }
 ];
 
-const rootElement = document.getElementById("app");
-ReactDOM.render(<DBTreeView items={propitems} />, rootElement);
+ReactDOM.render(title, document.getElementById("maintitle"));
+ReactDOM.render(<DBTreeView items={propitems} />, document.getElementById("treedb"));

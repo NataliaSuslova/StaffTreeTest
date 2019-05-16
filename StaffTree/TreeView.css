@@ -1,0 +1,71 @@
+﻿body {
+    
+    background-color: rgb(32, 51, 66);
+    margin:0;
+}
+h1 {
+    font: 14pt/12pt sans-serif;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    background-color: rgb(186, 85, 9);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    margin: 0;
+}
+h2 {
+    font: 11pt/9pt sans-serif;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+.edit{
+    color:blue;
+    text-decoration:underline;
+    font-size:smaller;
+}
+h3 {
+    font: 11pt/9pt sans-serif;
+}
+.treename {
+    font-weight: bold;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+summary {
+    outline: none;
+    text-decoration: underline;
+    font: 11pt/9pt sans-serif;
+}
+#treedb {
+    position: absolute;
+    left: auto;
+    width: 60%;
+    color: rgb(31, 54, 79);
+    background-color: rgb(246, 227, 82);
+}
+.cache {
+    margin-bottom:4px;
+    position: absolute;
+    right: 0;
+    width: 40%;
+    background-color: rgb(142, 187, 176);
+}
+.cachetitle {
+    font: 12pt/10pt sans-serif;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: rgb(31, 54, 79);
+    text-align: center;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+#cachetree {
+    background-color: rgb(255, 255, 255);
+    margin-left:5px;
+    margin-right:5px;
+    margin-bottom:5px;
+    min-height:400px;
+}
+ul {
+    list-style-type: none; 
+}
