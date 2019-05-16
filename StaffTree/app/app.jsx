@@ -1,7 +1,9 @@
 ﻿var ReactDOM = require('react-dom');
 var React = require('react');
-var DBTreeView = require('./components/DBTreeView.jsx');
-
+var MainPage = require('./components/MainPage.jsx');
+ReactDOM.render(<MainPage />, document.getElementById("app"));
+/*var DBTreeView = require('./components/DBTreeView.jsx');
+var CacheTreeView = require('./components/CacheTreeView.jsx');
 const title = "Иерархия сотрудников рекламного агенства АВРОРА";
 const propitems = [
     {
@@ -62,6 +64,23 @@ const propitems = [
         ]
     }
 ];
+const cacheitems = [
+    {
+        name: "Иванов Сергей Михайлович",
+        position: "Директор",
+        value: "55000",
+        subordinates: [
+            {
+                name: "Петрова Ольга Ивановна",
+                position: "Руководитель отдела продаж",
+                value: "40000",
+                subordinates: []
+            }
+        ]
+    }
 
+];
 ReactDOM.render(title, document.getElementById("maintitle"));
 ReactDOM.render(<DBTreeView items={propitems} />, document.getElementById("treedb"));
+ReactDOM.render(<CacheTreeView items={cacheitems} />, document.getElementById("cachetree"));
+*/

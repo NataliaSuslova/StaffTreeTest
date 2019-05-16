@@ -32,10 +32,19 @@
     <Compile Include="app\app.jsx">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="app\components\CacheTreeView.jsx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\components\CacheTreeViewNode.jsx">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="app\components\DBTreeView.jsx">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="app\components\DBTreeViewNode.jsx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\components\MainPage.jsx">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="server.js" />

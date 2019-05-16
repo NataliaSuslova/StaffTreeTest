@@ -1,5 +1,4 @@
-﻿body {
-    
+﻿body {   
     background-color: rgb(32, 51, 66);
     margin:0;
 }
@@ -50,6 +49,11 @@ summary {
     width: 40%;
     background-color: rgb(142, 187, 176);
 }
+.apply {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
 .cachetitle {
     font: 12pt/10pt sans-serif;
     font-family: Verdana, Arial, Helvetica, sans-serif;
@@ -61,11 +65,18 @@ summary {
 }
 #cachetree {
     background-color: rgb(255, 255, 255);
-    margin-left:5px;
-    margin-right:5px;
-    margin-bottom:5px;
-    min-height:400px;
+    padding-top: 5px;
+    margin: 0px 5px 40px 5px;
+    min-height: 400px;
 }
-ul {
-    list-style-type: none; 
+#treedb ul {
+    list-style-type: none;
 }
+#cachetree ul {
+    list-style-type: none;
+    padding-left: 5px;
+}
+    #cachetree ul ul {
+        list-style-type: disc;
+        padding-left: 25px;
+    }
