@@ -70,20 +70,77 @@ class MainPage extends React.Component {
                 {
                     name: "Иванов Сергей Михайлович",
                     position: "Директор",
-                    value: "55000",
+                    value: "60000",
                     subordinates: [
                         {
-                            name: "Петрова Ольга Ивановна",
-                            position: "Руководитель отдела продаж",
+                            name: "Фролова Елена Васильевна",
+                            position: "Секретарь",
+                            value: "35000",
+                            subordinates: []
+                        }
+                    ]
+                },
+                {
+                    name: "Васильева Екатерина Петровна",
+                    position: "Главный бухгалтер",
+                    value: "40000",
+                    subordinates: [
+                        {
+                            name: "Воронова Лидия Глебовна",
+                            position: "Бухгалтер",
+                            value: "40000",
+                            subordinates:[]
+                        },
+                        {
+                            name: "Светов Михаил Платонович",
+                            position: "Бухгалтер",
                             value: "40000",
                             subordinates: []
                         }
                     ]
+                },
+                {
+                    name: "Калинина Анна Петровна",
+                    position: "Копирайтер",
+                    value: "27000",
+                    subordinates: []
                 }
 
             ]
-        }
+        };
+        this.applyClick = this.applyClick.bind(this);
+        this.func = this.func.bind(this);
     };
+    func(items, cacheitem) {
+        return items.map((item) => {
+            if (item.subordinates && item.subordinates.length) {
+                item.subordinates = this.func(item.subordinates, cacheitem);
+            }
+            if (item.name === cacheitem.name) {
+                item.value = cacheitem.value;
+                item.subordinates = item.subordinates.concat(cacheitem.subordinates);
+                return item;
+            }
+            else {
+                return item;            
+            };
+        });
+        
+    };
+    applyClick() {
+        if (this.state.cacheitems.length) {
+            this.setState(state => {
+                var DBItems = this.func(state.DBItems, state.cacheitems[0]);
+                for (var i = 1; i < state.cacheitems.length; i++) {
+                    DBItems = this.func(DBItems, state.cacheitems[i]);
+                }
+                return {
+                    DBItems: DBItems,
+                    cacheitems: [],
+                };
+            });
+        }       
+    }
     render() {
         return (
             <div>
@@ -92,7 +149,7 @@ class MainPage extends React.Component {
                 <div class="cache">
                     <div class="cachetitle">{this.state.titlecache}</div>
                     <div id="cachetree"><CacheTreeView items={this.state.cacheitems} /></div>
-                    <div><button class="apply">Применить</button></div>
+                    <div><button onClick={this.applyClick} class="apply">Применить</button></div>
                 </div>
             </div>
         );
