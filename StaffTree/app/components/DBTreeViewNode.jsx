@@ -7,13 +7,13 @@ class DBTreeViewNode extends React.Component {
         if (this.props.item.subordinates && this.props.item.subordinates.length) {
             return (
                 <li>
-                    <h3><span class="treename">{this.props.item.name} </span><span class="edit">ред</span></h3>
+                    <h3><span class="treename">{this.props.item.name} </span> <button onClick={() => { this.props.addToCache(this.props.item)}} class="edit">ред.</button></h3>
                     <h3><b>Должность: </b>{this.props.item.position}</h3>
                     <h3><b>Зарплата: </b>{this.props.item.value} р.</h3>
                     <details open><summary>Подчиненные: </summary>
                         <ul>
                         {this.props.item.subordinates.map(i => (
-                            <DBTreeViewNode item={i} />
+                                <DBTreeViewNode item={i} addToCache={this.props.addToCache} />
                         ))}
                     </ul> </details>
                 </li>
@@ -22,7 +22,7 @@ class DBTreeViewNode extends React.Component {
         else {
             return (
                 <li>
-                    <h3><span class="treename">{this.props.item.name} </span><span class="edit">ред</span></h3>
+                    <h3><span class="treename">{this.props.item.name} </span><button onClick={() => { this.props.addToCache(this.props.item)}} class="edit">ред.</button></h3>
                     <h3><b>Должность: </b>{this.props.item.position}</h3>
                     <h3><b>Зарплата: </b>{this.props.item.value} р.</h3>
                     <h3>Подчиненные: нет </h3>

@@ -5,7 +5,7 @@ class DBTreeView extends React.Component {
         return (
             <ul>
                 {this.props.items.map(i => (
-                    <DBTreeViewNode item={i} />
+                    <DBTreeViewNode item={i} addToCache={this.props.addToCache} />
                 ))}
             </ul>
         );

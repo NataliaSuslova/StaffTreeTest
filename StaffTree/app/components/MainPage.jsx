@@ -110,6 +110,7 @@ class MainPage extends React.Component {
         };
         this.applyClick = this.applyClick.bind(this);
         this.func = this.func.bind(this);
+        this.addToCache = this.addToCache.bind(this);
     };
     func(items, cacheitem) {
         return items.map((item) => {
@@ -141,11 +142,22 @@ class MainPage extends React.Component {
             });
         }       
     }
+    addToCache(item) {
+        if (this.state.cacheitems.findIndex(i => i.name === item.name) === -1) {
+            const cacheitem = {
+                name: item.name,
+                position: item.position,
+                value: item.value,
+                subordinates: []
+            };
+            this.setState({ cacheitems: this.state.cacheitems.concat(cacheitem) });
+        }      
+    }
     render() {
         return (
             <div>
                 <h1 id="maintitle">{this.state.title}</h1>
-                <div id="treedb"><DBTreeView items={this.state.DBItems} /></div>
+                <div id="treedb"><DBTreeView items={this.state.DBItems} addToCache={this.addToCache} /></div>
                 <div class="cache">
                     <div class="cachetitle">{this.state.titlecache}</div>
                     <div id="cachetree"><CacheTreeView items={this.state.cacheitems} /></div>

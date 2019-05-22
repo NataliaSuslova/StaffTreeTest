@@ -18,10 +18,10 @@ h2 {
     font-family: Verdana, Arial, Helvetica, sans-serif;
     font-weight: bold;
 }
-.edit{
-    color:blue;
-    text-decoration:underline;
-    font-size:smaller;
+.edit {
+    color: white;
+    font-size: smaller;
+    background-color: rgb(142, 187, 176);
 }
 h3 {
     font: 11pt/9pt sans-serif;
