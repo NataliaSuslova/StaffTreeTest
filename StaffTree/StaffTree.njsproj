@@ -44,6 +44,9 @@
     <Compile Include="app\components\DBTreeViewNode.jsx">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="app\components\EditValue.jsx">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="app\components\MainPage.jsx">
       <SubType>Code</SubType>
     </Compile>

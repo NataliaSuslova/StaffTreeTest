@@ -23,6 +23,22 @@ h2 {
     font-size: smaller;
     background-color: rgb(142, 187, 176);
 }
+.editvalue {
+    background-color: white;
+    border-style: solid;
+    border-color: rgb(32, 51, 66);
+    border-width: medium;
+    margin: 5px 5px 5px 5px;
+    padding: 5px;
+    font: 11pt/9pt sans-serif;
+}
+.editvalue input {
+    width:60px;
+}
+.editvalue button {
+    margin: 5px;
+}
+
 h3 {
     font: 11pt/9pt sans-serif;
 }

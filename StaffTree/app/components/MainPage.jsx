@@ -1,12 +1,15 @@
 ﻿var React = require('react');
 var DBTreeView = require('./DBTreeView.jsx');
 var CacheTreeView = require('./CacheTreeView.jsx');
+var EditValue = require('./EditValue.jsx');
 class MainPage extends React.Component {
     constructor() {
         super();
         this.state = {
             title: "Иерархия сотрудников рекламного агенства АВРОРА",
             titlecache: "Окно редактирования",
+            isEditValue: false,
+            EditItem: {},
             DBItems: [
                 {
                     name: "Иванов Сергей Михайлович",
@@ -111,15 +114,24 @@ class MainPage extends React.Component {
         this.applyClick = this.applyClick.bind(this);
         this.func = this.func.bind(this);
         this.addToCache = this.addToCache.bind(this);
+        this.showEditValue = this.showEditValue.bind(this);
+        this.closeEditValue = this.closeEditValue.bind(this);
+        this.changeEditItemValue = this.changeEditItemValue.bind(this);
     };
-    func(items, cacheitem) {
+    func(items, cacheitem, isVal, isSub) {
+        isVal = isVal || true;
+        isSub = isSub || true;
         return items.map((item) => {
             if (item.subordinates && item.subordinates.length) {
                 item.subordinates = this.func(item.subordinates, cacheitem);
             }
             if (item.name === cacheitem.name) {
-                item.value = cacheitem.value;
-                item.subordinates = item.subordinates.concat(cacheitem.subordinates);
+                if (isVal) {
+                    item.value = cacheitem.value;
+                }
+                if (isSub) {
+                    item.subordinates = item.subordinates.concat(cacheitem.subordinates);
+                }
                 return item;
             }
             else {
@@ -153,6 +165,23 @@ class MainPage extends React.Component {
             this.setState({ cacheitems: this.state.cacheitems.concat(cacheitem) });
         }      
     }
+    showEditValue(item) {
+        this.setState({ isEditValue: true, EditItem:item });
+    }
+    closeEditValue() {
+        this.setState({ isEditValue: false });
+    }
+    changeEditItemValue(EditItem) {
+        this.setState(state => {
+            var CacheItems = this.func(state.cacheitems, EditItem, true, false);
+            return {
+                cacheitems: CacheItems,               
+                isEditValue: false,
+                EditItem: {},
+            };
+        });
+
+    }
     render() {
         return (
             <div>
@@ -160,7 +189,11 @@ class MainPage extends React.Component {
                 <div id="treedb"><DBTreeView items={this.state.DBItems} addToCache={this.addToCache} /></div>
                 <div class="cache">
                     <div class="cachetitle">{this.state.titlecache}</div>
-                    <div id="cachetree"><CacheTreeView items={this.state.cacheitems} /></div>
+                    {this.state.isEditValue ? (
+                        <div><EditValue EditItem={this.state.EditItem} changeEditItemValue={this.changeEditItemValue} closeEditValue={this.closeEditValue} /> </div>
+                    ) : null}
+
+                    <div id="cachetree"><CacheTreeView items={this.state.cacheitems} showEditValue={this.showEditValue} /></div>
                     <div><button onClick={this.applyClick} class="apply">Применить</button></div>
                 </div>
             </div>

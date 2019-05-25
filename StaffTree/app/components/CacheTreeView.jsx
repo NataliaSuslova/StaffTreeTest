@@ -5,7 +5,7 @@ class CacheTreeView extends React.Component {
         return (
             <ul type="disc">
                 {this.props.items.map(i => (
-                    <CacheTreeViewNode item={i} />
+                    <CacheTreeViewNode item={i} showEditValue={this.props.showEditValue} />
                 ))}
             </ul>
         );

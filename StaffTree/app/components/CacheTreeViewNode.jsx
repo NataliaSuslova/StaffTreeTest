@@ -1,25 +1,20 @@
 ﻿var React = require('react');
+//var EditValue = require('./EditValue.jsx');
 class CacheTreeViewNode extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { item: this.props.item, children: null };
-        if (this.state.item.subordinates && this.state.item.subordinates.length) {
-            this.state.children = (
-                <ul type="disc">
-                    {this.state.item.subordinates.map(i => (
-                        <CacheTreeViewNode item={i} />
-                    ))}
-                </ul>
-            );
-        }
     }
     render() {
         return (
             <li>
-                <h3>{this.state.item.name}</h3>
-                <h3>{this.state.item.position}: {this.state.item.value} р.</h3>
-                <div><button>Добавить</button> <button>Изменить</button></div>
-                {this.state.children}
+                <h3>{this.props.item.name}</h3>
+                <h3>{this.props.item.position}: {this.props.item.value} р.</h3>
+                <div><button>Добавить</button> <button onClick={() => { this.props.showEditValue(this.props.item) }}>Изменить</button ></div>
+                <ul>
+                    {this.props.item.subordinates.map(i => (
+                        <CacheTreeViewNode item={i} showEditValue={this.props.showEditValue} />
+                    ))}
+                </ul>
             </li>
         );
     }
