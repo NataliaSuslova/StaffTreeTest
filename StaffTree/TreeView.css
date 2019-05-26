@@ -33,12 +33,11 @@ h2 {
     font: 11pt/9pt sans-serif;
 }
 .editvalue input {
-    width:60px;
+    width: 200px;
 }
 .editvalue button {
     margin: 5px;
 }
-
 h3 {
     font: 11pt/9pt sans-serif;
 }

@@ -50,6 +50,9 @@
     <Compile Include="app\components\MainPage.jsx">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="app\components\NewSubordinate.jsx">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="server.js" />
     <Compile Include="webpack.config.js">
       <SubType>Code</SubType>

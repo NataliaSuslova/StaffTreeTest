@@ -17,14 +17,17 @@ class EditValue extends React.Component {
                     <input type="text" value={this.state.newvalue} onChange={this.updateState} /></p>
                 <button
                     onClick={() => {
-                        this.props.changeEditItemValue(
+                        var EditItem = this.props.EditItem;
+                        EditItem.value = this.state.newvalue;
+                        /*this.props.changeEditItemValue(
                             {
                                 name: this.props.EditItem.name,
                                 position: this.props.EditItem.position,
                                 value: this.state.newvalue,
                                 subordinates: []
                             }
-                        )
+                        )*/
+                        this.props.changeEditItemValue();
                     }}> OK </button>
                 
                 <button onClick={() => { this.props.closeEditValue() }}>Отмена</button>               
