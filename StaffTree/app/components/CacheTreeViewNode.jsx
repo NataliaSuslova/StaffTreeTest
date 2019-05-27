@@ -23,6 +23,7 @@ class CacheTreeViewNode extends React.Component {
                 <ul>
                     {this.props.item.subordinates.map(i => (
                         <CacheTreeViewNode
+                            key={i.name}
                             item={i}
                             disabled={this.props.disabled}
                             showEditValue={this.props.showEditValue}

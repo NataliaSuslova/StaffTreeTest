@@ -35,7 +35,7 @@ class NewSubordinate extends React.Component {
         var positionColor = isValidPosition ? "green" : "red";
         var nameColor = isValidName ? "green" : "red";
         return (
-            <div class="editvalue">
+            <div className="editvalue">
                 <p>
                     <label>Имя:</label>
                     <input

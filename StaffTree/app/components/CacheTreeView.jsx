@@ -6,6 +6,7 @@ class CacheTreeView extends React.Component {
             <ul type="disc">
                 {this.props.items.map(i => (
                     <CacheTreeViewNode
+                        key={i.name}
                         item={i}
                         disabled={this.props.disabled}
                         showEditValue={this.props.showEditValue}

@@ -1,12 +1,12 @@
 ﻿var path = require('path');
 
-module.exports = {
+var config = {
     mode: 'production',
     entry: "./app/app.jsx", // входная точка - исходный файл
     output: {
         path: path.resolve(__dirname, './public'),     // путь к каталогу выходных файлов - папка public
         publicPath: '/public/',
-        filename: "index.js"       // название создаваемого файла
+        filename: "bundle.js"       // название создаваемого файла
     },
     module: {
         rules: [   //загрузчик для jsx
@@ -21,3 +21,4 @@ module.exports = {
         ]
     }
 }
+module.exports = config;

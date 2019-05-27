@@ -13,7 +13,7 @@ class EditValue extends React.Component {
         var isValid = isFinite(this.state.newvalue) === true && this.state.newvalue > 10000;
         var valueColor = isValid ? "green" : "red";
         return (
-            <div class="editvalue">
+            <div className="editvalue">
                 <p><label>Старое значение:</label>
                     <label>{this.props.EditItem.value}</label></p>   
                 <p><label>Новое значение:</label>

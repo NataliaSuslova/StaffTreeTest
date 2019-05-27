@@ -129,7 +129,6 @@ class MainPage extends React.Component {
         });
     }
     showNewSubordinate(item) {
-        console.log(item.name);
         this.setState({
             isDisabled: true,
             isNewSubordinate: true,
