@@ -18,56 +18,41 @@ h2 {
     font-family: Verdana, Arial, Helvetica, sans-serif;
     font-weight: bold;
 }
-.edit {
-    color: white;
-    font-size: smaller;
-    background-color: rgb(142, 187, 176);
-}
-.editvalue {
-    background-color: white;
-    border-style: solid;
-    border-color: rgb(32, 51, 66);
-    border-width: medium;
-    margin: 5px 5px 5px 5px;
-    padding: 5px;
-    font: 11pt/9pt sans-serif;
-}
-.editvalue input {
-    width: 200px;
-}
-.editvalue button {
-    margin: 5px;
-}
 h3 {
     font: 11pt/9pt sans-serif;
 }
+/* DB TreeView */
 .treename {
     font-weight: bold;
     font-family: Verdana, Arial, Helvetica, sans-serif;
 }
-summary {
-    outline: none;
-    text-decoration: underline;
-    font: 11pt/9pt sans-serif;
-}
-#treedb {
+.treedb {
     position: absolute;
     left: auto;
     width: 60%;
     color: rgb(31, 54, 79);
     background-color: rgb(246, 227, 82);
 }
+    .treedb button {
+        color: white;
+        font-size: smaller;
+        background-color: rgb(142, 187, 176);
+    }
+    .treedb ul {
+        list-style-type: none;
+    }
+    .treedb summary {
+        outline: none;
+        text-decoration: underline;
+        font: 11pt/9pt sans-serif;
+    }
+/* Editing */
 .cache {
     margin-bottom:4px;
     position: absolute;
     right: 0;
     width: 40%;
     background-color: rgb(142, 187, 176);
-}
-.apply {
-    position: absolute;
-    right: 10px;
-    bottom: 10px;
 }
 .cachetitle {
     font: 12pt/10pt sans-serif;
@@ -78,21 +63,39 @@ summary {
     padding-bottom: 10px;
     padding-top: 10px;
 }
-#cachetree {
+.editvalue {
+    background-color: white;
+    border-style: solid;
+    border-color: rgb(32, 51, 66);
+    border-width: medium;
+    margin: 5px 5px 5px 5px;
+    padding: 5px;
+    font: 11pt/9pt sans-serif;
+}
+    .editvalue input {
+        width: 200px;
+    }
+    .editvalue button {
+        margin: 5px;
+    }
+.cachetree {
     background-color: rgb(255, 255, 255);
     padding-top: 5px;
     padding-bottom: 5px;
     margin: 0 5px 40px 5px;
     min-height: 400px;
 }
-#treedb ul {
-    list-style-type: none;
-}
-#cachetree ul {
-    list-style-type: none;
-    padding-left: 5px;
-}
-    #cachetree ul ul {
+    .cachetree ul {
+        list-style-type: none;
+        padding-left: 5px;
+    }
+    .cachetree ul ul {
         list-style-type: disc;
         padding-left: 25px;
     }
+/* Apply Button */
+.apply {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
