@@ -8,7 +8,10 @@ class EditValue extends React.Component {
     updateState(e) {
         this.setState({ newvalue: e.target.value });
     }
-    render() {       
+    render() {
+        //isFinite
+        var isValid = isFinite(this.state.newvalue) === true && this.state.newvalue > 10000;
+        var valueColor = isValid ? "green" : "red";
         return (
             <div class="editvalue">
                 <p><label>Старое значение:</label>
@@ -17,9 +20,12 @@ class EditValue extends React.Component {
                     <input
                         type="text"
                         value={this.state.newvalue}
-                        onChange={this.updateState} />
+                        onChange={this.updateState}
+                        style={{ borderColor: valueColor }}
+                    />
                 </p>
                 <button
+                    disabled={!isValid}
                     onClick={() => {
                         var EditItem = this.props.EditItem;
                         EditItem.value = this.state.newvalue;

@@ -27,6 +27,13 @@ class NewSubordinate extends React.Component {
         });
     }
     render() {
+        var isValidValue = isFinite(this.state.value) === true && this.state.value > 10000;
+        var isValidName = this.state.name.split(" ").length === 3;
+        var isValidPosition = this.state.position.length > 3;
+        var isValid = isValidValue && isValidName && isValidPosition;
+        var valueColor = isValidValue ? "green" : "red";
+        var positionColor = isValidPosition ? "green" : "red";
+        var nameColor = isValidName ? "green" : "red";
         return (
             <div class="editvalue">
                 <p>
@@ -34,23 +41,30 @@ class NewSubordinate extends React.Component {
                     <input
                         type="text"
                         value={this.state.name}
-                        onChange={this.updateName} />
+                        onChange={this.updateName}
+                        style={{ borderColor: nameColor }}
+                    />
                 </p>
                 <p>
                     <label>Должность:</label>
                     <input
                         type="text"
                         value={this.state.position}
-                        onChange={this.updatePosition} />
+                        onChange={this.updatePosition}
+                        style={{ borderColor: positionColor }}
+                    />
                 </p>
                 <p>
                     <label>Зарплата:</label>
                     <input
                         type="text"
                         value={this.state.value}
-                        onChange={this.updateValue} />
+                        onChange={this.updateValue}
+                        style={{ borderColor: valueColor }}
+                    />
                 </p>
                 <button
+                    disabled={!isValid}
                     onClick={() => {
                         const newitem = {
                             name: this.state.name,
